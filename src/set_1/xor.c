@@ -1,4 +1,4 @@
-#include <assert.h>
+#include "xor.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -39,25 +39,4 @@ void byte_xor(unsigned int *x, unsigned int *y, unsigned int *output,
     for (size_t i = 0; i < size / 2; i++) {
         output[i] = x[i] ^ y[i];
     }
-}
-
-int main() {
-    char test_x[] = "1c0111001f010100061a024b53535009181c";
-    char test_y[] = "686974207468652062756c6c277320657965";
-    size_t size = sizeof(test_x);
-    unsigned int x_bytes[size / 2];
-    unsigned int y_bytes[size / 2];
-    hex_to_bytes(test_x, x_bytes, size);
-    hex_to_bytes(test_y, y_bytes, size);
-
-    char test_hex[] = "746865206b696420646f6e277420706c6179";
-    unsigned int output[size / 2];
-    unsigned int test_bytes[size / 2];
-    hex_to_bytes(test_hex, test_bytes, size);
-
-    byte_xor(x_bytes, y_bytes, output, size);
-
-    assert(!memcmp(test_bytes, output, size));
-
-    return 0;
 }

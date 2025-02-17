@@ -1,3 +1,4 @@
+#include "hex_to_b64.h"
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
@@ -32,23 +33,3 @@
  * @param b64 array that will be filled with base64 output
 */
 void hex_to_b64(char *hex, size_t size, char *b64) { /* TODO */ }
-
-/* main function for tests, in practice we will import and directly use the
- * `hex_to_b64` func */
-int main() {
-    char test_hex[] = "49276d206b696c6c696e6720796f757220627261696e206c696b6520"
-                      "6120706f69736f6e6f7573206d757368726f6f6d";
-    size_t hex_size = sizeof(test_hex);
-    char test_b64[] =
-        "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t";
-    size_t b64_size = sizeof(test_b64);
-    char out_b64[b64_size];
-
-    hex_to_b64(test_hex, hex_size, out_b64);
-
-    printf("%s\n", test_b64);
-    printf("%s\n", out_b64);
-    assert(!memcmp(test_b64, out_b64, b64_size));
-
-    return 0;
-}
