@@ -1,4 +1,5 @@
 #include "hex_to_b64.h"
+#include "../common.h"
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>

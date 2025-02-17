@@ -1,3 +1,4 @@
+#include "../common.h"
 #include "hex_to_b64.h"
 #include "xor.h"
 #include <assert.h>
@@ -22,14 +23,14 @@ void challenge_2() {
     char test_x[] = "1c0111001f010100061a024b53535009181c";
     char test_y[] = "686974207468652062756c6c277320657965";
     size_t size = sizeof(test_x);
-    unsigned int x_bytes[size / 2];
-    unsigned int y_bytes[size / 2];
+    uint_t x_bytes[size / 2];
+    uint_t y_bytes[size / 2];
     hex_to_bytes(test_x, x_bytes, size);
     hex_to_bytes(test_y, y_bytes, size);
 
     char test_hex[] = "746865206b696420646f6e277420706c6179";
-    unsigned int output[size / 2];
-    unsigned int test_bytes[size / 2];
+    uint_t output[size / 2];
+    uint_t test_bytes[size / 2];
     hex_to_bytes(test_hex, test_bytes, size);
 
     byte_xor(x_bytes, y_bytes, output, size);
