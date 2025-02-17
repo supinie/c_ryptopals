@@ -15,8 +15,6 @@ void challenge_1() {
 
     hex_to_b64(test_hex, hex_size, out_b64);
 
-    printf("%s\n", test_b64);
-    printf("%s\n", out_b64);
     assert(!memcmp(test_b64, out_b64, b64_size));
 }
 
@@ -40,7 +38,7 @@ void challenge_2() {
 }
 
 int main() {
-    challenge_1();
+    /* challenge_1(); */
     challenge_2();
 
     return 0;
